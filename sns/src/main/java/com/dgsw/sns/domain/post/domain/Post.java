@@ -32,8 +32,5 @@ public class Post {
     private String postImagePath;
 
     private int postLikeCount;
-
-    @OneToMany
-    private List<Comment> postComment;
     private int postCommentCount;
 }

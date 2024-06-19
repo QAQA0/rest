@@ -1,5 +1,6 @@
 package com.dgsw.sns.domain.user.domain;
 
+import com.dgsw.sns.domain.user.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,5 +23,5 @@ public class User {
     @Column(nullable = false)
     private String nickname;
     @Column(nullable = false)
-    private String uuid;
+    private String role;
 }
