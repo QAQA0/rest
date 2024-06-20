@@ -14,6 +14,7 @@ public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private int user_id;
     private int post_id;
 }

@@ -1,14 +1,11 @@
 package com.dgsw.sns.domain.post.domain;
 
-import com.dgsw.sns.domain.comment.domain.Comment;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
-
-import java.util.List;
 
 @Entity
 @Table(name = "tbl_post")
@@ -18,22 +15,17 @@ import java.util.List;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int postId;
+    private int Id;
+
     @NotBlank
     @Length(min = 1, max = 50)
-    private String postTitle;
+    private String Title;
     @NotBlank
     @Length(min = 1, max = 500)
-    private String postContent;
+    private String Content;
     @NotBlank
-    private String postAuthor;
-
-    private String postImageName;
-    private String postImagePath;
+    private String Author;
 
     private int postLikeCount;
-
-    @OneToMany
-    private List<Comment> postComment;
     private int postCommentCount;
 }

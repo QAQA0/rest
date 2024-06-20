@@ -1,24 +1,28 @@
-package com.dgsw.sns.domain.comment.domain;
+package com.dgsw.sns.domain.post.domain;
 
-import com.dgsw.sns.domain.post.domain.Post;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tbl_comment")
+@Table(name = "tbl_photo")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Comment {
+public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String content;
+    private Long id;
 
-    private int likeCount;
+    private String photoName;
+    private String photoPath;
+    private Long photoSize;
 
     @ManyToOne
     private Post post;
+
+    public void setBoard(Post post) {
+        this.post = post;
+    }
 }
