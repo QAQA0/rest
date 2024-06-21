@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PostCreateRequest {
-    private String postTitle;
-    private String postContent;
+public class PostReadResponse {
+    private String title;
+    private String content;
 }
+

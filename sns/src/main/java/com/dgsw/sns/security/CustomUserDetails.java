@@ -1,6 +1,5 @@
 package com.dgsw.sns.security;
 
-import com.dgsw.sns.domain.user.domain.User;
 import com.dgsw.sns.domain.user.dto.UserDTO;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;

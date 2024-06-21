@@ -5,7 +5,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PostCreateRequest {
+public class PostUpdateRequest {
+    private int id;
     private String postTitle;
     private String postContent;
 }
