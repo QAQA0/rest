@@ -1,4 +1,4 @@
-package com.dgsw.sns.domain.post.dto;
+package com.dgsw.sns.domain.post.dto.post;
 
 import lombok.Getter;
 import lombok.Setter;

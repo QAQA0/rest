@@ -1,9 +1,10 @@
 package com.dgsw.sns.domain.post.controller;
 
-import com.dgsw.sns.domain.post.dto.PageableRequest;
-import com.dgsw.sns.domain.post.dto.PostCreateRequest;
-import com.dgsw.sns.domain.post.dto.PostDTO;
-import com.dgsw.sns.domain.post.dto.PostUpdateRequest;
+import com.dgsw.sns.domain.post.dto.page.PageableRequest;
+import com.dgsw.sns.domain.post.dto.photo.PhotoUploadRequest;
+import com.dgsw.sns.domain.post.dto.post.PostCreateRequest;
+import com.dgsw.sns.domain.post.dto.post.PostDTO;
+import com.dgsw.sns.domain.post.dto.post.PostUpdateRequest;
 import com.dgsw.sns.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,11 @@ public class PostController {
     @PostMapping
     public ResponseEntity post(@RequestBody PostCreateRequest post) {
         postService.create(post);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("/image")
+    public ResponseEntity photo(@RequestBody PhotoUploadRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
