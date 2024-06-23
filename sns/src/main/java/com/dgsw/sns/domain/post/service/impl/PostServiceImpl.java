@@ -1,10 +1,10 @@
 package com.dgsw.sns.domain.post.service.impl;
 
 import com.dgsw.sns.domain.post.domain.Post;
-import com.dgsw.sns.domain.post.dto.PageableRequest;
-import com.dgsw.sns.domain.post.dto.PostCreateRequest;
-import com.dgsw.sns.domain.post.dto.PostDTO;
-import com.dgsw.sns.domain.post.dto.PostUpdateRequest;
+import com.dgsw.sns.domain.post.dto.page.PageableRequest;
+import com.dgsw.sns.domain.post.dto.post.PostCreateRequest;
+import com.dgsw.sns.domain.post.dto.post.PostDTO;
+import com.dgsw.sns.domain.post.dto.post.PostUpdateRequest;
 import com.dgsw.sns.domain.post.repository.PostRepository;
 import com.dgsw.sns.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
