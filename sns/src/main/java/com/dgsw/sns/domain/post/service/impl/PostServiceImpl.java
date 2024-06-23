@@ -28,7 +28,7 @@ public class PostServiceImpl implements PostService {
         Post post = Post.builder()
                 .title(request.getPostTitle())
                 .content(request.getPostContent())
-                .author(null)
+                .author("qaqa@gmail.com")
                 .postLikeCount(0)
                 .postCommentCount(0)
                 .build();

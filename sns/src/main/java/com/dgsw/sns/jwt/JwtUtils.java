@@ -45,7 +45,7 @@ public class JwtUtils {
     public Claims getClaims(String token) {
         try {
             return Jwts.parser()
-                    .setSigningKey(jwtProperties.getSecretKey().getBytes()) // Convert secret key to bytes
+                    .setSigningKey(jwtProperties.getSecretKey()) // Convert secret key to bytes
                     .parseClaimsJws(token)
                     .getBody();
         } catch (ExpiredJwtException e) {
