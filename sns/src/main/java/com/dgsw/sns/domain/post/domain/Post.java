@@ -35,4 +35,21 @@ public class Post {
         this.title = title;
         this.content = content;
     }
+
+    public void plusPostLikeCount() {
+        postLikeCount++;
+    }
+
+    public void minusPostLikeCount() {
+        postLikeCount--;
+    }
+
+    public void plusPostCommentCount() {
+        postCommentCount++;
+    }
+
+    public void minusPostCommentCount() {
+        postCommentCount--;
+    }
+
 }

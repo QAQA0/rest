@@ -7,6 +7,7 @@ import com.dgsw.sns.domain.post.dto.post.PostDTO;
 import com.dgsw.sns.domain.post.dto.post.PostUpdateRequest;
 import com.dgsw.sns.domain.post.repository.PostRepository;
 import com.dgsw.sns.domain.post.service.PostService;
+import com.dgsw.sns.security.UserSecurity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -22,13 +23,14 @@ import java.util.List;
 public class PostServiceImpl implements PostService {
 
     private final PostRepository postRepository;
+    private final UserSecurity userSecurity;
 
     @Override
     public void create(PostCreateRequest request) {
         Post post = Post.builder()
                 .title(request.getPostTitle())
                 .content(request.getPostContent())
-                .author("qaqa@gmail.com")
+                .author(userSecurity.getUser().getEmail())
                 .postLikeCount(0)
                 .postCommentCount(0)
                 .build();
@@ -38,7 +40,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Page<PostDTO> getPosts(PageableRequest request) {
-        Pageable pageable = request.getPageable(Sort.by("id").descending());
+        Pageable pageable = request.getPageable(Sort.by("id").ascending());
         List<Post> entityList = postRepository.findAll();
         List<PostDTO> dtoList = new ArrayList<>();
 
@@ -60,7 +62,7 @@ public class PostServiceImpl implements PostService {
         return PostDTO.builder()
                 .title(post.getTitle())
                 .content(post.getContent())
-                .Author(post.getAuthor())
+                .author(post.getAuthor())
                 .postLikeCount(post.getPostLikeCount())
                 .postCommentCount(post.getPostCommentCount())
                 .build();
@@ -78,7 +80,7 @@ public class PostServiceImpl implements PostService {
                 .id(post.getId())
                 .title(request.getPostTitle())
                 .content(request.getPostContent())
-                .Author(post.getAuthor())
+                .author(post.getAuthor())
                 .postLikeCount(post.getPostLikeCount())
                 .postCommentCount(post.getPostCommentCount())
                 .build();
@@ -86,6 +88,11 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void delete(int id) {
-        postRepository.deleteById(id);
+        Post post = postRepository.findById(id)
+                .orElseThrow(RuntimeException::new);
+        if (userSecurity.getUser().getEmail().equals(post.getAuthor())) {
+            postRepository.deleteById(id);
+        }
+        throw new RuntimeException("작성자가 아닙니다.");
     }
 }

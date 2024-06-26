@@ -18,7 +18,7 @@ public interface PostService {
         return PostDTO.builder()
                 .title(entity.getTitle())
                 .content(entity.getContent())
-                .Author(entity.getAuthor())
+                .author(entity.getAuthor())
                 .postLikeCount(entity.getPostLikeCount())
                 .postCommentCount(entity.getPostCommentCount())
                 .build();

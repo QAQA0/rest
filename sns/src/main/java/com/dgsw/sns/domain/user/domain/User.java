@@ -1,6 +1,5 @@
 package com.dgsw.sns.domain.user.domain;
 
-import com.dgsw.sns.domain.user.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

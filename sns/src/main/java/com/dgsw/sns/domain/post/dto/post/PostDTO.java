@@ -11,7 +11,7 @@ public class PostDTO {
     private int id;
     private String title;
     private String content;
-    private String Author;
+    private String author;
     private int postLikeCount;
     private int postCommentCount;
 }
